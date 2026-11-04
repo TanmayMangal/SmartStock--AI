@@ -1,5 +1,5 @@
 
-# SmartStock AI: AI-Powered Inventory Management and Demand Forecasting
+SmartStock AI: AI-Powered Inventory Management and Demand Forecasting
 
 Full-stack inventory system (products, sales, suppliers, purchases, alerts) with a machine-learning
 demand forecaster. Everything runs locally and uses free tools.
@@ -8,7 +8,7 @@ demand forecaster. Everything runs locally and uses free tools.
 > It is not a record of any real business. Rows loaded from it are flagged `is_synthetic = 1` and shown with a
 > "demo" tag in the UI. Replace `ml-service/data/*.csv` with real exports (same columns) to use real data.
 
-## Architecture
+ Architecture
 
 ```
 Browser (HTML/CSS/JS + Chart.js)
@@ -24,7 +24,7 @@ Express also serves the frontend, so you only open http://localhost:3000.
 
 Prerequisites: Node.js 18+, Python 3.10+, MySQL 8.
 
-1. **Database**: open `database/schema.sql` in MySQL Workbench and run it (or `mysql -u root -p < database/schema.sql`).
+1. Database: open `database/schema.sql` in MySQL Workbench and run it (or `mysql -u root -p < database/schema.sql`).
 2. **ML service**
    ```bash
    cd ml-service
