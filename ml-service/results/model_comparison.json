@@ -1,0 +1,279 @@
+{
+  "data_note": "Computed on SYNTHETIC data - not real business records.",
+  "split": "chronological, first 80% train / last 20% test, per product",
+  "summary": [
+    {
+      "model": "Random Forest",
+      "MAE": 3.452,
+      "RMSE": 4.326
+    },
+    {
+      "model": "Linear Regression",
+      "MAE": 3.455,
+      "RMSE": 4.359
+    },
+    {
+      "model": "Moving Average (7d)",
+      "MAE": 4.105,
+      "RMSE": 5.125
+    }
+  ],
+  "best_model_counts": {
+    "Linear Regression": 6,
+    "Random Forest": 6
+  },
+  "per_product": [
+    {
+      "product_id": 1,
+      "product": "Basmati Rice 5kg",
+      "model": "Moving Average (7d)",
+      "MAE": 3.033,
+      "RMSE": 3.637
+    },
+    {
+      "product_id": 1,
+      "product": "Basmati Rice 5kg",
+      "model": "Linear Regression",
+      "MAE": 2.491,
+      "RMSE": 3.068
+    },
+    {
+      "product_id": 1,
+      "product": "Basmati Rice 5kg",
+      "model": "Random Forest",
+      "MAE": 2.521,
+      "RMSE": 3.182
+    },
+    {
+      "product_id": 2,
+      "product": "Wheat Flour 10kg",
+      "model": "Moving Average (7d)",
+      "MAE": 2.481,
+      "RMSE": 3.143
+    },
+    {
+      "product_id": 2,
+      "product": "Wheat Flour 10kg",
+      "model": "Linear Regression",
+      "MAE": 2.321,
+      "RMSE": 2.895
+    },
+    {
+      "product_id": 2,
+      "product": "Wheat Flour 10kg",
+      "model": "Random Forest",
+      "MAE": 2.461,
+      "RMSE": 3.013
+    },
+    {
+      "product_id": 3,
+      "product": "Sunflower Oil 1L",
+      "model": "Moving Average (7d)",
+      "MAE": 3.961,
+      "RMSE": 5.009
+    },
+    {
+      "product_id": 3,
+      "product": "Sunflower Oil 1L",
+      "model": "Linear Regression",
+      "MAE": 3.399,
+      "RMSE": 4.385
+    },
+    {
+      "product_id": 3,
+      "product": "Sunflower Oil 1L",
+      "model": "Random Forest",
+      "MAE": 3.507,
+      "RMSE": 4.274
+    },
+    {
+      "product_id": 4,
+      "product": "Sugar 1kg",
+      "model": "Moving Average (7d)",
+      "MAE": 5.069,
+      "RMSE": 6.635
+    },
+    {
+      "product_id": 4,
+      "product": "Sugar 1kg",
+      "model": "Linear Regression",
+      "MAE": 4.473,
+      "RMSE": 5.77
+    },
+    {
+      "product_id": 4,
+      "product": "Sugar 1kg",
+      "model": "Random Forest",
+      "MAE": 4.516,
+      "RMSE": 5.737
+    },
+    {
+      "product_id": 5,
+      "product": "Tea 250g",
+      "model": "Moving Average (7d)",
+      "MAE": 3.187,
+      "RMSE": 3.959
+    },
+    {
+      "product_id": 5,
+      "product": "Tea 250g",
+      "model": "Linear Regression",
+      "MAE": 2.803,
+      "RMSE": 3.578
+    },
+    {
+      "product_id": 5,
+      "product": "Tea 250g",
+      "model": "Random Forest",
+      "MAE": 2.979,
+      "RMSE": 3.819
+    },
+    {
+      "product_id": 6,
+      "product": "Cold Drink 1.25L",
+      "model": "Moving Average (7d)",
+      "MAE": 3.596,
+      "RMSE": 4.606
+    },
+    {
+      "product_id": 6,
+      "product": "Cold Drink 1.25L",
+      "model": "Linear Regression",
+      "MAE": 3.397,
+      "RMSE": 4.207
+    },
+    {
+      "product_id": 6,
+      "product": "Cold Drink 1.25L",
+      "model": "Random Forest",
+      "MAE": 3.515,
+      "RMSE": 4.381
+    },
+    {
+      "product_id": 7,
+      "product": "Biscuit Family Pack",
+      "model": "Moving Average (7d)",
+      "MAE": 5.069,
+      "RMSE": 6.213
+    },
+    {
+      "product_id": 7,
+      "product": "Biscuit Family Pack",
+      "model": "Linear Regression",
+      "MAE": 4.022,
+      "RMSE": 4.951
+    },
+    {
+      "product_id": 7,
+      "product": "Biscuit Family Pack",
+      "model": "Random Forest",
+      "MAE": 3.727,
+      "RMSE": 4.574
+    },
+    {
+      "product_id": 8,
+      "product": "Instant Noodles 5-pack",
+      "model": "Moving Average (7d)",
+      "MAE": 3.485,
+      "RMSE": 4.498
+    },
+    {
+      "product_id": 8,
+      "product": "Instant Noodles 5-pack",
+      "model": "Linear Regression",
+      "MAE": 3.315,
+      "RMSE": 4.199
+    },
+    {
+      "product_id": 8,
+      "product": "Instant Noodles 5-pack",
+      "model": "Random Forest",
+      "MAE": 3.143,
+      "RMSE": 4.092
+    },
+    {
+      "product_id": 9,
+      "product": "Packaged Milk 1L",
+      "model": "Moving Average (7d)",
+      "MAE": 8.971,
+      "RMSE": 10.884
+    },
+    {
+      "product_id": 9,
+      "product": "Packaged Milk 1L",
+      "model": "Linear Regression",
+      "MAE": 6.395,
+      "RMSE": 8.145
+    },
+    {
+      "product_id": 9,
+      "product": "Packaged Milk 1L",
+      "model": "Random Forest",
+      "MAE": 6.248,
+      "RMSE": 7.921
+    },
+    {
+      "product_id": 10,
+      "product": "Notebook 200 pages",
+      "model": "Moving Average (7d)",
+      "MAE": 3.064,
+      "RMSE": 3.743
+    },
+    {
+      "product_id": 10,
+      "product": "Notebook 200 pages",
+      "model": "Linear Regression",
+      "MAE": 2.759,
+      "RMSE": 3.395
+    },
+    {
+      "product_id": 10,
+      "product": "Notebook 200 pages",
+      "model": "Random Forest",
+      "MAE": 2.816,
+      "RMSE": 3.415
+    },
+    {
+      "product_id": 11,
+      "product": "Bathing Soap",
+      "model": "Moving Average (7d)",
+      "MAE": 5.147,
+      "RMSE": 6.34
+    },
+    {
+      "product_id": 11,
+      "product": "Bathing Soap",
+      "model": "Linear Regression",
+      "MAE": 4.126,
+      "RMSE": 5.198
+    },
+    {
+      "product_id": 11,
+      "product": "Bathing Soap",
+      "model": "Random Forest",
+      "MAE": 3.944,
+      "RMSE": 4.883
+    },
+    {
+      "product_id": 12,
+      "product": "Shampoo 180ml",
+      "model": "Moving Average (7d)",
+      "MAE": 2.197,
+      "RMSE": 2.836
+    },
+    {
+      "product_id": 12,
+      "product": "Shampoo 180ml",
+      "model": "Linear Regression",
+      "MAE": 1.957,
+      "RMSE": 2.516
+    },
+    {
+      "product_id": 12,
+      "product": "Shampoo 180ml",
+      "model": "Random Forest",
+      "MAE": 2.045,
+      "RMSE": 2.619
+    }
+  ]
+}

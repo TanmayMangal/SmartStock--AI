@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SmartStock AI</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- LOGIN / REGISTER -->
+<div id="auth-view" class="auth-wrap">
+  <form id="auth-form" class="card auth-card">
+    <h1>SmartStock <span class="accent">AI</span></h1>
+    <p class="muted">Inventory management with demand forecasting</p>
+    <div id="name-row"><label>Name<input id="a-name" autocomplete="name"></label></div>
+    <label>Email<input id="a-email" type="email" required autocomplete="email"></label>
+    <label>Password<input id="a-pass" type="password" required minlength="8" autocomplete="current-password"></label>
+    <button class="btn primary" id="auth-submit">Log in</button>
+    <p class="muted small"><a href="#" id="auth-toggle">Need an account? Register</a></p>
+    <p class="error" id="auth-error"></p>
+  </form>
+</div>
+
+<!-- APP -->
+<div id="app-view" hidden>
+  <aside class="sidebar">
+    <div class="brand">SmartStock <span class="accent">AI</span></div>
+    <nav id="nav">
+      <a data-tab="dashboard" class="active">Dashboard</a>
+      <a data-tab="products">Products</a>
+      <a data-tab="sales">Sales</a>
+      <a data-tab="suppliers">Suppliers</a>
+      <a data-tab="purchases">Purchases</a>
+      <a data-tab="alerts">Alerts</a>
+      <a data-tab="forecast">Forecast</a>
+    </nav>
+    <div class="sidebar-foot">
+      <div id="who" class="small"></div>
+      <button class="btn small" id="logout">Log out</button>
+    </div>
+  </aside>
+
+  <main>
+    <div id="toast" class="toast" hidden></div>
+
+    <section id="tab-dashboard">
+      <h2>Dashboard</h2>
+      <div class="stats" id="stats"></div>
+      <div class="grid2">
+        <div class="card"><h3>Sales (last 30 days)</h3><canvas id="chart-daily"></canvas></div>
+        <div class="card"><h3>Top products (30 days, units)</h3><canvas id="chart-top"></canvas></div>
+      </div>
+      <div class="card">
+        <div class="row"><h3>Summary</h3>
+          <select id="period"><option value="daily">Daily</option><option value="weekly">Weekly</option><option value="monthly">Monthly</option></select></div>
+        <canvas id="chart-summary"></canvas>
+      </div>
+    </section>
+
+    <section id="tab-products" hidden>
+      <div class="row"><h2>Products</h2><button class="btn primary" id="add-product">+ Add product</button></div>
+      <div class="filters">
+        <input id="p-q" placeholder="Search name or SKU">
+        <select id="p-cat"><option value="">All categories</option></select>
+        <select id="p-status"><option value="">All stock levels</option><option value="ok">In stock</option><option value="low">Low</option><option value="out">Out of stock</option></select>
+      </div>
+      <div class="card table-wrap"><table id="p-table"></table></div>
+    </section>
+
+    <section id="tab-sales" hidden>
+      <h2>Sales</h2>
+      <form id="sale-form" class="card inline-form">
+        <label>Product<select id="s-product" required></select></label>
+        <label>Quantity<input id="s-qty" type="number" min="1" required></label>
+        <label>Date<input id="s-date" type="date"></label>
+        <button class="btn primary">Record sale</button>
+      </form>
+      <div class="card table-wrap"><table id="s-table"></table></div>
+    </section>
+
+    <section id="tab-suppliers" hidden>
+      <div class="row"><h2>Suppliers</h2><button class="btn primary" id="add-supplier">+ Add supplier</button></div>
+      <div class="card table-wrap"><table id="sup-table"></table></div>
+    </section>
+
+    <section id="tab-purchases" hidden>
+      <h2>Purchases</h2>
+      <form id="purchase-form" class="card inline-form">
+        <label>Supplier<select id="pu-supplier" required></select></label>
+        <label>Product<select id="pu-product" required></select></label>
+        <label>Quantity<input id="pu-qty" type="number" min="1" required></label>
+        <label>Unit cost (₹)<input id="pu-cost" type="number" min="0" step="0.01" required></label>
+        <label>Date<input id="pu-date" type="date"></label>
+        <button class="btn primary">Record purchase</button>
+      </form>
+      <div class="card table-wrap"><table id="pu-table"></table></div>
+    </section>
+
+    <section id="tab-alerts" hidden>
+      <h2>Alerts</h2>
+      <div class="card"><h3>Low / out of stock</h3><div id="alerts-basic"></div></div>
+      <div class="card"><div class="row"><h3>Predicted to run out within 14 days</h3>
+        <button class="btn small" id="load-risk">Run prediction</button></div>
+        <div id="alerts-risk" class="muted">Click “Run prediction” (needs the ML service running).</div></div>
+      <div class="card table-wrap"><h3>Recent stock movements</h3><table id="mv-table"></table></div>
+    </section>
+
+    <section id="tab-forecast" hidden>
+      <h2>Demand forecast</h2>
+      <div class="card inline-form">
+        <label>Product<select id="f-product"></select></label>
+        <label>Days ahead<select id="f-days"><option>7</option><option selected>14</option><option>30</option></select></label>
+        <button class="btn primary" id="f-run">Forecast</button>
+      </div>
+      <div id="f-result"></div>
+      <div class="card"><h3>Model comparison</h3>
+        <p class="muted small">Lower is better. Evaluated on a chronological hold-out (last 20% of days).</p>
+        <div id="metrics" class="muted">Loading…</div></div>
+    </section>
+  </main>
+</div>
+
+<!-- generic modal -->
+<dialog id="modal"><form method="dialog" id="modal-form"><h3 id="modal-title"></h3><div id="modal-body"></div>
+  <div class="row end"><button type="button" class="btn" id="modal-cancel">Cancel</button><button class="btn primary" id="modal-ok">Save</button></div>
+  <p class="error" id="modal-error"></p></form></dialog>
+
+<!-- Chart.js from a CDN. For fully offline use: npm i chart.js and copy chart.umd.js into /frontend -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

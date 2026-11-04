@@ -1,0 +1,13 @@
+product_id,sku,name,category,supplier,price,quantity,reorder_level,lead_time_days
+1,RICE-5KG,Basmati Rice 5kg,Grocery,Sharma Wholesale,420,127,36,3
+2,ATTA-10KG,Wheat Flour 10kg,Grocery,Sharma Wholesale,390,54,28,3
+3,OIL-1L,Sunflower Oil 1L,Grocery,Sharma Wholesale,150,105,48,3
+4,SUGAR-1KG,Sugar 1kg,Grocery,Sharma Wholesale,46,450,72,3
+5,TEA-250G,Tea 250g,Beverages,Gupta Distributors,120,80,40,3
+6,COLD-125L,Cold Drink 1.25L,Beverages,Gupta Distributors,70,260,56,3
+7,BISC-PK,Biscuit Family Pack,Snacks,Gupta Distributors,35,462,88,3
+8,NOOD-PK,Instant Noodles 5-pack,Snacks,Gupta Distributors,70,220,44,3
+9,MILK-1L,Packaged Milk 1L,Dairy,Rajasthan Dairy Co,56,850,160,3
+10,NOTE-200,Notebook 200 pages,Stationery,City Stationers,60,70,24,3
+11,SOAP-BAR,Bathing Soap,Personal Care,City Stationers,38,278,64,3
+12,SHAM-180,Shampoo 180ml,Personal Care,City Stationers,165,60,20,3
