@@ -1,3 +1,4 @@
+
 # SmartStock AI: AI-Powered Inventory Management and Demand Forecasting
 
 Full-stack inventory system (products, sales, suppliers, purchases, alerts) with a machine-learning
@@ -105,3 +106,7 @@ Try: `GET /api/products`, `POST /api/sales {"product_id":1,"quantity":2}`, `GET 
 - No external factors (holidays, promotions, price changes) are used.
 - Chart.js loads from a CDN; download it into `frontend/` for fully offline use.
 - Ideas: ARIMA/Prophet comparison, prediction intervals, CSV import/export, barcode scanning, PDF reports.
+=======
+# SmartStock--AI
+AI-Based Inventory Management System with Stock Prediction and Supplier Recommendation
+>>>>>>> b5f6869ff6aa32cdac71985d4725849565e56094
